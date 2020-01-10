@@ -1,0 +1,24 @@
+# /root/.htaccess
+
+# Block Wordpress Files
+RewriteRule ^/(xmlrpc|wp-trackback|wp-config|wp-config-sample)\.php - [F,L,NC]
+RewriteRule ^/(license)\.txt - [F,L,NC]
+RewriteRule ^/(readme)\.html - [F,L,NC]
+
+# BLOCK METHOD
+RewriteCond %{REQUEST_METHOD} ^(connect|debug|delete|move|put|trace|track) [NC]
+RewriteRule .* - [F]
+
+# BAD BOT
+RewriteCond %{HTTP_USER_AGENT} "Havij|sqlmap|baidu|binlar|casper|cmsworldmap|comodo|diavol|dotbot|feedfinder|flicky|ia_archiver|jakarta|kmccrew|nutch|planetwork|purebot|pycurl|skygrid|sucker|turnit|vikspider|zmeu"
+RewriteRule .* - [F]
+
+# NULL User-Agent
+RewriteCond %{HTTP_USER_AGENT} ^-?$
+RewriteRule ^ - [F]
+
+# Block feed
+RewriteRule ^/(.*)(feed)(.*)$ - [F,L,NC]
+
+# Block wp-json
+RewriteRule ^/(.*)(wp-json)(.*)$ - [F,L,NC]

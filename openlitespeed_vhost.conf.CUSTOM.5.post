@@ -1,0 +1,4 @@
+#Security Optimize Rule
+rules   <<<END_rules
+rewriteFile     /root/.htaccess
+END_rules
