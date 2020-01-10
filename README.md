@@ -1,0 +1,2 @@
+# openlitespeed
+ OpenLiteSpeed for DirectAdmin
