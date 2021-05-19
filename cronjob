@@ -1,0 +1,3 @@
+# cp ./cronjob /etc/cron.d/openlitespeed_htaccess_scan
+# or cat ./cronjob >> /var/spool/cron/root
+*/5 * * * * root if ! find /home/*/domains/*/public_html/ -maxdepth 2 -type f -newer /usr/local/lsws/cgid -name '.htaccess' -exec false {} +; then systemctl restart lsws; fi >/dev/null 2>&1
