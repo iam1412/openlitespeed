@@ -10,6 +10,9 @@ RewriteRule .* - [F]
 # BAD BOT
 RewriteCond %{HTTP_USER_AGENT} "Havij|sqlmap|baidu|binlar|casper|cmsworldmap|comodo|diavol|dotbot|feedfinder|flicky|ia_archiver|jakarta|kmccrew|nutch|planetwork|purebot|pycurl|skygrid|sucker|turnit|vikspider|zmeu"
 RewriteRule .* - [F]
+# BAD BOT Optimize
+RewriteCond %{HTTP_USER_AGENT} "SemrushBot|bingbot"
+RewriteRule .* - [F]
 
 # NULL User-Agent
 RewriteCond %{HTTP_USER_AGENT} ^-?$
@@ -20,7 +23,6 @@ RewriteRule ^/(.*)(feed)(.*)$ - [F,L,NC]
 
 # Block wp-json # - Wordpress JSON API
 # RewriteRule ^/(.*)(wp-json)(.*)$ - [F,L,NC]
-
 
 # 7G FIREWALL v1.3 20200903
 # @ https://perishablepress.com/7g-firewall/
